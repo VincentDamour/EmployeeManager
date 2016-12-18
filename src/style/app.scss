@@ -20,3 +20,13 @@ a {
     transition: all 0.25s ease-out
   }
 }
+
+.btn-primary {
+  background-color: #EFC849 !important;
+  border-color: #EFC849 !important;
+
+  &:hover {
+    border-color: #EFC849 !important;
+    background-color: darken(#EFC849, 10%) !important;
+  }
+}

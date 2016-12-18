@@ -1,1 +1,48 @@
-<p>employee detail</p>
+<loader *ngIf="isLoading"></loader>
+
+<section *ngIf="!isLoading">
+  <form>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="email" class="form-control" id="name" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="tel" class="form-control" id="phone" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" required>
+    </div>
+    <div class="form-group">
+      <label for="website">Website</label>
+      <input type="url" class="form-control" id="website">
+    </div>
+    <div class="form-group">
+      <label for="notes">Notes</label>
+      <textarea class="form-control" id="notes" rows="3"></textarea>
+    </div>
+    <fieldset class="form-group">
+      <legend>Employee type</legend>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="A" checked>
+          Type A
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="B">
+          Type B
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="C">
+          Type C
+        </label>
+      </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</section>

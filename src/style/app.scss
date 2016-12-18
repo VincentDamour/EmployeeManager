@@ -1,8 +1,22 @@
 // styles in src/style directory are applied to the whole page
-body {
-    background: white;
-    color: #fff;
+html * {
+  font-family: 'Montserrat', sans-serif;
 }
+
+body {
+  background-color: #F5F5F5;
+}
+
 a {
-    color: #03A9F4;
+  color: #333;
+
+  &:active,
+  &:visited {
+    color: #333;
+  }
+
+  &:hover {
+    color: #EFC849;
+    transition: all 0.25s ease-out
+  }
 }

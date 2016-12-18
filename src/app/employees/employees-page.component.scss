@@ -1,0 +1,11 @@
+table {
+  tbody {
+    tr {
+      &:hover {
+        background-color: white;
+        cursor: pointer;
+        transition: all 0.25s ease-out
+      }
+    }
+  }
+}

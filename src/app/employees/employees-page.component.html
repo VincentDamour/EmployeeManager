@@ -1,0 +1,23 @@
+<loader *ngIf="isLoading"></loader>
+
+<div *ngIf="!isLoading">
+  <table class="table">
+    <thead class="thead-default">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees; let i = index; trackBy: trackByEmployeeId">
+        <th scope="row">{{employee.id}}</th>
+        <td>{{employee.name}}</td>
+        <td>{{employee.phone}}</td>
+        <td>{{employee.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

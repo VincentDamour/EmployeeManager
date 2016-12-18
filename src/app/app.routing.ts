@@ -1,12 +1,12 @@
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
+import { EmployeesPageComponent } from './employees/employees-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'employees', component: AboutComponent },
-  { path: 'employees/new', component: AboutComponent },
+  { path: 'employees', component: EmployeesPageComponent },
+  { path: 'employees/new', component: EmployeesPageComponent },
   { path: 'employees/:id', component: HomeComponent }
 ];
 

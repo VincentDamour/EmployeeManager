@@ -115,10 +115,7 @@ module.exports = function makeWebpackConfig() {
       {test: /\.(scss|sass)$/, exclude: root('src', 'style'), loader: 'raw-loader!postcss-loader!sass-loader'},
 
       // support for .html as raw text
-      {test: /\.html$/, loader: 'raw-loader',  exclude: root('src', 'public')},
-
-      // tslint support
-      { test: /\.ts$/, enforce: 'pre', loader: 'tslint-loader' }
+      {test: /\.html$/, loader: 'raw-loader',  exclude: root('src', 'public')}
     ]
   };
 
@@ -144,25 +141,8 @@ module.exports = function makeWebpackConfig() {
         root('./src') // location of your src
       ),
 
-    // Tslint configuration for webpack 2
     new webpack.LoaderOptionsPlugin({
       options: {
-        /**
-         * Apply the tslint loader as pre/postLoader
-         * Reference: https://github.com/wbuchwalter/tslint-loader
-         */
-        tslint: {
-          emitErrors: false,
-          failOnHint: false
-        },
-        /**
-         * Sass
-         * Reference: https://github.com/jtangelder/sass-loader
-         * Transforms .scss files to .css
-         */
-        sassLoader: {
-          //includePaths: [path.resolve(__dirname, "node_modules/foundation-sites/scss")]
-        },
         /**
          * PostCSS
          * Reference: https://github.com/postcss/autoprefixer-core

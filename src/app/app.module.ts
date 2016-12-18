@@ -6,8 +6,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ApiService } from './shared';
+import { EmployeesPageComponent } from "./employees/employees-page.component";
+import { LoaderComponent } from "./common/loader/loader.component";
+import { EmployeesService } from './shared/api-services';
 import { routing } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
@@ -23,10 +24,11 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    EmployeesPageComponent,
+    LoaderComponent
   ],
   providers: [
-    ApiService
+    EmployeesService
   ],
   bootstrap: [AppComponent]
 })

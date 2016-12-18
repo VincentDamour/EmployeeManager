@@ -15,6 +15,6 @@ export class EmployeesService {
   }
 
   public getEmployee(id): Observable<Employee> {
-    return this.http.get(this.url).map(extractData).catch(handleError);
+    return this.http.get(`${this.url}/${id}`).map(extractData).catch(handleError);
   }
 }

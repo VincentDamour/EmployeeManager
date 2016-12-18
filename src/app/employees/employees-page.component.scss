@@ -1,4 +1,12 @@
 table {
+  color: #333 !important;
+
+  thead {
+    th {
+      color: #333 !important;
+    }
+  }
+
   tbody {
     tr {
       &:hover {

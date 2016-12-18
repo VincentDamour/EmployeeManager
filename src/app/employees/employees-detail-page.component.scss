@@ -2,5 +2,13 @@ section {
   padding-top: 2rem;
   padding-bottom: 3rem;
   margin: auto;
-  width: 50%;
+  width: 60%;
+
+  @media (max-width: 544px) {
+    width: 90%;
+  }
+}
+
+.btn-save {
+  margin-top: 2rem;
 }

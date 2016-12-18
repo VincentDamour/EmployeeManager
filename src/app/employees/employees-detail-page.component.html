@@ -2,47 +2,48 @@
 
 <section *ngIf="!isLoading">
   <form>
-    <div class="form-group">
+    <div class="form-group col-md-6">
       <label for="name">Name</label>
       <input type="email" class="form-control" id="name" required>
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-6">
       <label for="phone">Phone</label>
       <input type="tel" class="form-control" id="phone" required>
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-6">
       <label for="email">Email</label>
       <input type="email" class="form-control" id="email" required>
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-6">
       <label for="website">Website</label>
       <input type="url" class="form-control" id="website">
     </div>
-    <div class="form-group">
-      <label for="notes">Notes</label>
-      <textarea class="form-control" id="notes" rows="3"></textarea>
+    <div class="form-group col-md-6">
+      <label for="salary">Salary</label>
+      <input type="text" class="form-control" id="salary">
     </div>
-    <fieldset class="form-group">
-      <legend>Employee type</legend>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="A" checked>
-          Type A
-        </label>
-      </div>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="B">
-          Type B
-        </label>
-      </div>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="C">
-          Type C
-        </label>
-      </div>
-    </fieldset>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <div class="col-md-12">
+      <fieldset class="form-group">
+        <label class="col-md-12 no-padding-left">Employee type</label>
+        <div [(ngModel)]="model" ngbRadioGroup name="radioBasic">
+          <label class="btn btn-primary">
+            <input type="radio" value="A">Type A
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" value="B">Type B
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" value="C">Type C
+          </label>
+        </div>
+      </fieldset>
+    </div>
+    <div class="form-group col-md-12">
+      <label for="notes">Notes</label>
+      <textarea class="form-control" id="notes" rows="4"></textarea>
+    </div>
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-primary btn-save">Save</button>
+    </div>
   </form>
 </section>

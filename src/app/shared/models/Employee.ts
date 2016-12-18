@@ -6,15 +6,13 @@ export default class Employee {
 
   public name: string;
 
-  public username: string;
-
   public email: string;
 
   public phone: string;
 
-  public adress: Address;
-
   public website: string;
 
-  public company: Company
+  public type: string;
+
+  public salary: number;
 }

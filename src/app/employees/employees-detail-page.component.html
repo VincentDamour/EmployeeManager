@@ -1,49 +1,5 @@
-<loader *ngIf="isLoading"></loader>
+<loader *ngIf="!(employee | async)"></loader>
 
-<section *ngIf="!isLoading">
-  <form>
-    <div class="form-group col-md-6">
-      <label for="name">Name</label>
-      <input type="email" class="form-control" id="name" required>
-    </div>
-    <div class="form-group col-md-6">
-      <label for="phone">Phone</label>
-      <input type="tel" class="form-control" id="phone" required>
-    </div>
-    <div class="form-group col-md-6">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" required>
-    </div>
-    <div class="form-group col-md-6">
-      <label for="website">Website</label>
-      <input type="url" class="form-control" id="website">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="salary">Salary</label>
-      <input type="text" class="form-control" id="salary">
-    </div>
-    <div class="col-md-12">
-      <fieldset class="form-group">
-        <label class="col-md-12 no-padding-left">Employee type</label>
-        <div [(ngModel)]="model" ngbRadioGroup name="radioBasic">
-          <label class="btn btn-primary">
-            <input type="radio" value="A">Type A
-          </label>
-          <label class="btn btn-primary">
-            <input type="radio" value="B">Type B
-          </label>
-          <label class="btn btn-primary">
-            <input type="radio" value="C">Type C
-          </label>
-        </div>
-      </fieldset>
-    </div>
-    <div class="form-group col-md-12">
-      <label for="notes">Notes</label>
-      <textarea class="form-control" id="notes" rows="4"></textarea>
-    </div>
-    <div class="col-md-12">
-      <button type="submit" class="btn btn-primary btn-save">Save</button>
-    </div>
-  </form>
+<section *ngIf="employee | async">
+  <employee-detail-form [employee]="employee | async"></employee-detail-form>
 </section>

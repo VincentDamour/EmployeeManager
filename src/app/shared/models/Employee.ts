@@ -15,4 +15,6 @@ export default class Employee {
   public type: string;
 
   public salary: number;
+
+  public notes: string;
 }

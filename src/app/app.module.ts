@@ -9,8 +9,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { EmployeesPageComponent } from "./employees/employees-page.component";
 import { EmployeesDetailPageComponent } from "./employees/employees-detail-page.component";
+import { EmployeeDetailFormComponent } from "./employees/employee-detail-form.component";
 import { LoaderComponent } from "./common/loader/loader.component";
 import { EmployeesService } from './shared/api-services';
+import { MoneyPipe } from "./shared/money.pipe";
 import { routing } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
@@ -31,7 +33,9 @@ import { firebaseConfig } from "../config/firebase-config"
     HomeComponent,
     EmployeesPageComponent,
     EmployeesDetailPageComponent,
-    LoaderComponent
+    EmployeeDetailFormComponent,
+    LoaderComponent,
+    MoneyPipe
   ],
   providers: [
     EmployeesService

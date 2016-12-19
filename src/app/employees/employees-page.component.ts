@@ -11,7 +11,7 @@ import Employee from "../shared/models/Employee";
 export class EmployeesPageComponent implements OnInit {
   // isLoading = true;
   // errorMessage = null;
-  employees: FirebaseListObservable<Employee[]>;
+  employees: FirebaseListObservable<Employee[]> = null;
 
   // constructor(private employeesService: EmployeesService) {
   // }

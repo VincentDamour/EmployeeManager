@@ -1,0 +1,45 @@
+<form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+  <div class="form-group col-md-6">
+    <label for="name">Name</label>
+    <input [(ngModel)]="employee.name" type="text" name="name" class="form-control" id="name" required>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="phone">Phone</label>
+    <input [(ngModel)]="employee.phone" type="tel" name="phone" class="form-control" id="phone" required>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="email">Email</label>
+    <input [(ngModel)]="employee.email" type="email" name="email" class="form-control" id="email" required>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="website">Website</label>
+    <input [(ngModel)]="employee.website" name="website" type="url" class="form-control" id="website">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="salary">Salary</label>
+    <input [(ngModel)]="employee.salary" name="salary" type="text" class="form-control" id="salary">
+  </div>
+  <div class="col-md-12">
+    <fieldset class="form-group">
+      <label class="col-md-12 no-padding-left">Employee type</label>
+      <div [(ngModel)]="employee.type" ngbRadioGroup name="type">
+        <label class="btn btn-primary">
+          <input type="radio" value="A" name="type">Type A
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" value="B" name="type">Type B
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" value="C" name="type">Type C
+        </label>
+      </div>
+    </fieldset>
+  </div>
+  <div class="form-group col-md-12">
+    <label for="notes">Notes</label>
+    <textarea [(ngModel)]="employee.notes" name="notes" class="form-control" id="notes" rows="4"></textarea>
+  </div>
+  <div class="col-md-12">
+    <button type="submit" class="btn btn-primary btn-save">Save</button>
+  </div>
+</form>

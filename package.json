@@ -7,6 +7,7 @@
     "clean-install": "npm run clean && npm install",
     "clean-start": "npm run clean-install && npm start",
     "build": "rimraf dist && webpack --progress --profile --bail",
+    "build:preprod": "rimraf dist && webpack --progress --profile --bail",
     "server": "webpack-dev-server --inline --port 8080",
     "start": "npm run server",
     "start:hmr": "npm run server -- --hot"

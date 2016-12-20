@@ -21,7 +21,7 @@ import { routing } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
-import { firebaseConfig } from '../config/firebase-config'
+import { firebaseConfig } from '../config/firebase.config'
 
 @NgModule({
   imports: [

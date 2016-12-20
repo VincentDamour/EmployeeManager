@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import AppConfig from "../../../config"
 import { extractData, handleError } from '../utils/api-helper';
 import Employee from "../models/Employee";
 
 @Injectable()
 export class EmployeesService {
-  private url = 'https://jsonplaceholder.typicode.com/users';
+  private url = `${AppConfig.apiUrl}/users`;
 
   constructor(private http: Http) { }
 

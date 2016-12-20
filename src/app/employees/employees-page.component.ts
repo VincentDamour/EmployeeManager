@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeesService } from "../shared/api-services/employees.service";
+import { EmployeesService } from "../shared/services/employees.service";
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import Employee from "../shared/models/Employee";
 

@@ -21,6 +21,11 @@ a {
   }
 }
 
+button,
+input {
+  border-radius: 0 !important;
+}
+
 .btn-primary {
   background-color: #EFC849 !important;
   border-color: #EFC849 !important;

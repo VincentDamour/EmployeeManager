@@ -15,6 +15,18 @@ header {
     letter-spacing: 4px;
     font-size: 13px;
     padding: 1rem;
+    color: #333;
+    cursor: pointer;
+
+    &:active,
+    &:visited {
+      color: #333;
+    }
+
+    &:hover {
+      color: #EFC849;
+      transition: all 0.25s ease-out
+    }
   }
 
   .navbar-brand {

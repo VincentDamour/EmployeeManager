@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 import Employee from "../shared/models/Employee";
@@ -8,7 +8,7 @@ import Employee from "../shared/models/Employee";
   templateUrl: 'employees-detail-page.component.html',
   styleUrls: ['employees-detail-page.component.scss']
 })
-export class EmployeesDetailPageComponent implements OnInit, OnChanges {
+export class EmployeesDetailPageComponent implements OnInit {
   isLoading: boolean = false;
   employeeId: number = null;
   employee: FirebaseObjectObservable<Employee>;
@@ -22,14 +22,6 @@ export class EmployeesDetailPageComponent implements OnInit, OnChanges {
       this.employeeId = +params['id'];
       this.employee = this.af.database.object(`/employees/${this.employeeId}`);
     });
-  }
-
-  ngOnChanges(changes:any):void {
-    var hasChanged = changes.originalEmployee.currentValue;
-    console.log(changes);
-    if (hasChanged) {
-      console.log("changed");
-    }
   }
 
   onSubmit() {

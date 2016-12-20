@@ -7,17 +7,20 @@ import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { EmployeesPageComponent } from "./employees/employees-page.component";
-import { EmployeesDetailPageComponent } from "./employees/employees-detail-page.component";
-import { EmployeeDetailFormComponent } from "./employees/employee-detail-form.component";
-import { LoaderComponent } from "./common/loader/loader.component";
-import { EmployeesService } from './shared/api-services';
-import { MoneyPipe } from "./shared/money.pipe";
+import { LoginPageComponent } from './auth/login-page.component';
+import { EmployeesPageComponent } from './employees/employees-page.component';
+import { EmployeesDetailPageComponent } from './employees/employees-detail-page.component';
+import { EmployeeDetailFormComponent } from './employees/employee-detail-form.component';
+import { LoaderComponent } from './common/loader/loader.component';
+import { EmployeesService, AuthService } from './shared/services';
+import { LoggedInGuard } from './shared/guards/logged-in.guard';
+import { AdminGuard } from './shared/guards/admin.guard';
+import { MoneyPipe } from './shared/money.pipe';
 import { routing } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
-import { firebaseConfig } from "../config/firebase-config"
+import { firebaseConfig } from '../config/firebase-config'
 
 @NgModule({
   imports: [
@@ -31,6 +34,7 @@ import { firebaseConfig } from "../config/firebase-config"
   declarations: [
     AppComponent,
     HomeComponent,
+    LoginPageComponent,
     EmployeesPageComponent,
     EmployeesDetailPageComponent,
     EmployeeDetailFormComponent,
@@ -38,7 +42,10 @@ import { firebaseConfig } from "../config/firebase-config"
     MoneyPipe
   ],
   providers: [
-    EmployeesService
+    EmployeesService,
+    AuthService,
+    LoggedInGuard,
+    AdminGuard
   ],
   bootstrap: [AppComponent]
 })

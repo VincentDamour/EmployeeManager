@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { extractData } from '../utils/api-helper';
-import {FirebaseAuthState, AuthProviders, AuthMethods, FirebaseAuth} from "angularfire2";
+import { FirebaseAuthState, AuthProviders, AuthMethods, FirebaseAuth } from "angularfire2";
 
 @Injectable()
 class AuthServiceHttp {
@@ -49,7 +49,9 @@ export class AuthService {
   private authState: FirebaseAuthState = null;
 
   constructor(public auth$: FirebaseAuth) {
-    auth$.subscribe((state: FirebaseAuthState) => (this.authState = state));
+    auth$.subscribe((state: FirebaseAuthState) => {
+      this.authState = state
+    });
   }
 
   get isLoggedIn(): boolean {
@@ -60,11 +62,12 @@ export class AuthService {
     return this.roles.includes("ADMIN");
   }
 
-  // login(provider: number): firebase.Promise<FirebaseAuthState> {
-  //   return this.auth$
-  //     .login({ provider })
-  //     .catch(error => console.log('ERROR @ AuthService#login() :', error));
-  // }
+  login(email: string, password: string): firebase.Promise<FirebaseAuthState> {
+    return this.auth$
+      .login({ email, password }, { provider: AuthProviders.Password, method: AuthMethods.Password })
+      .then(() => this.roles.push('ADMIN'))
+      .catch(error => console.log('ERROR @ AuthService#login() :', error));
+  }
 
   loginAnonymously(): firebase.Promise<FirebaseAuthState> {
     return this.auth$
@@ -74,5 +77,6 @@ export class AuthService {
 
   logout(): void {
     this.auth$.logout();
+    this.roles = [];
   }
 }

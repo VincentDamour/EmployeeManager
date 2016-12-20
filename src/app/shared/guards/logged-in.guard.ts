@@ -12,9 +12,8 @@ export class LoggedInGuard implements CanActivate {
       .take(1)
       .map(authState => !!authState)
       .do(isLoggedIn => {
-        console.log(isLoggedIn);
         if (!isLoggedIn) {
-          this.router.navigate(['']);
+          this.router.navigate(['/login']);
         }
       });
   }

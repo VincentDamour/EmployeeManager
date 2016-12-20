@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
-import Login from "../shared/models/Login";
 import { AuthService } from "../shared/services/auth.service";
 
 @Component({
@@ -9,12 +8,13 @@ import { AuthService } from "../shared/services/auth.service";
   styleUrls: ['login-page.component.scss']
 })
 export class LoginPageComponent {
-  login: Login = new Login();
+  email: string;
+  password: string;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
-    console.log(this.login);
+    this.authService.login(this.email, this.password).then(() => this.router.navigate(['/employees']));
   }
 
   onAnonymousLoginClick() {

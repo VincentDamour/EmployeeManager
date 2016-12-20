@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import '../style/app.scss';
-import { AuthService } from "./shared/services/auth.service";
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector: 'my-app', // <my-app></my-app>

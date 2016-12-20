@@ -59,7 +59,7 @@ export class AuthService {
   }
 
   get isAdmin(): boolean {
-    return this.roles.includes("ADMIN");
+    return this.roles.includes('ADMIN');
   }
 
   login(email: string, password: string): firebase.Promise<FirebaseAuthState> {

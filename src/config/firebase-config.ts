@@ -1,9 +1,9 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyB2-yv5oCYoVOIyBYERRHFXUk_RTv8FQRc",
-  authDomain: "employeemanager-56e0c.firebaseapp.com",
-  databaseURL: "https://employeemanager-56e0c.firebaseio.com",
-  storageBucket: "employeemanager-56e0c.appspot.com",
-  messagingSenderId: "945255463074"
+  apiKey: 'AIzaSyB2-yv5oCYoVOIyBYERRHFXUk_RTv8FQRc',
+  authDomain: 'employeemanager-56e0c.firebaseapp.com',
+  databaseURL: 'https://employeemanager-56e0c.firebaseio.com',
+  storageBucket: 'employeemanager-56e0c.appspot.com',
+  messagingSenderId: '945255463074'
 };
 
 // this.af.database.object('/employees/1').set({

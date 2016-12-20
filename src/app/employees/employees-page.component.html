@@ -1,6 +1,6 @@
-<loader *ngIf="isLoading"></loader>
+<loader *ngIf="!(employees | async)"></loader>
 
-<div *ngIf="!isLoading">
+<div *ngIf="employees | async">
   <table class="table">
     <thead class="thead-default">
       <tr>

@@ -10,7 +10,6 @@ import Employee from "../shared/models/Employee";
 })
 export class EmployeesPageComponent implements OnInit {
   // isLoading = true;
-  // errorMessage = null;
   employees: FirebaseListObservable<Employee[]> = null;
 
   // constructor(private employeesService: EmployeesService) {
@@ -26,7 +25,7 @@ export class EmployeesPageComponent implements OnInit {
     //       this.employees = employees;
     //       this.isLoading = false;
     //     },
-    //     error =>  this.errorMessage = <any>error
+    //     error => console.error(error)
     //   );
     this.employees = this.af.database.list('/employees');
   }

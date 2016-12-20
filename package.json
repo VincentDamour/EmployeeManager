@@ -8,6 +8,7 @@
     "clean-start": "npm run clean-install && npm start",
     "build": "rimraf dist && webpack --progress --profile --bail",
     "build:preprod": "rimraf dist && webpack --progress --profile --bail",
+    "deploy": "npm run build && firebase deploy",
     "server": "webpack-dev-server --inline --port 8080",
     "start": "npm run server",
     "start:hmr": "npm run server -- --hot"

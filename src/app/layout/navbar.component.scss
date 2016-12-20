@@ -1,0 +1,47 @@
+header {
+  .navbar {
+    border-radius: 0 !important;
+    background-color: white;
+    height: 70px;
+  }
+
+  .nav-link {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 13px;
+    padding: 1rem;
+    color: #333;
+    cursor: pointer;
+
+    &:active,
+    &:visited {
+      color: #333;
+    }
+
+    &:hover {
+      color: #EFC849;
+      transition: all 0.25s ease-out
+    }
+  }
+
+  .navbar-brand {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-top: 4px;
+
+    &:hover {
+      color: #333 !important;
+    }
+
+    > span {
+      position: relative;
+      top: 6px;
+    }
+  }
+
+  .navbar-nav {
+    margin-top: 2px;
+  }
+}

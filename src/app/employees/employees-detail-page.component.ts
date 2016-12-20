@@ -14,8 +14,7 @@ export class EmployeesDetailPageComponent implements OnInit {
   employee: FirebaseObjectObservable<Employee>;
   internalEmployee: Employee;
 
-  constructor(private route: ActivatedRoute, private af: AngularFire) {
-  }
+  constructor(private route: ActivatedRoute, private af: AngularFire) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {

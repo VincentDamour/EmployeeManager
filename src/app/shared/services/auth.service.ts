@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { extractData } from '../utils/api-helper';
+import {FirebaseAuthState, AuthProviders, AuthMethods, FirebaseAuth} from "angularfire2";
 
 @Injectable()
-export class AuthService {
+class AuthServiceHttp {
   private loggedIn = false;
   private roles = [];
 
@@ -11,17 +13,13 @@ export class AuthService {
   }
 
   login(email, password) {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http
-      .post(
-        '/login',
-        JSON.stringify({ email, password }),
-        { headers }
-      )
-      .map(res => res.json())
-      .map((res) => {
+      .post('/login', JSON.stringify({ email, password }), { headers } )
+      .map(extractData)
+      .map(res => {
         if (res.success) {
           localStorage.setItem('token', res.auth_token);
           this.loggedIn = true;
@@ -42,5 +40,39 @@ export class AuthService {
 
   isAdmin() {
     return this.roles.includes("ADMIN");
+  }
+}
+
+@Injectable()
+export class AuthService {
+  private roles = [];
+  private authState: FirebaseAuthState = null;
+
+  constructor(public auth$: FirebaseAuth) {
+    auth$.subscribe((state: FirebaseAuthState) => (this.authState = state));
+  }
+
+  get isLoggedIn(): boolean {
+    return this.authState !== null;
+  }
+
+  get isAdmin(): boolean {
+    return this.roles.includes("ADMIN");
+  }
+
+  // login(provider: number): firebase.Promise<FirebaseAuthState> {
+  //   return this.auth$
+  //     .login({ provider })
+  //     .catch(error => console.log('ERROR @ AuthService#login() :', error));
+  // }
+
+  loginAnonymously(): firebase.Promise<FirebaseAuthState> {
+    return this.auth$
+      .login({ provider: AuthProviders.Anonymous, method: AuthMethods.Anonymous })
+      .catch(error => console.error('ERROR @ AuthService#loginAnonymously() :', error));
+  }
+
+  logout(): void {
+    this.auth$.logout();
   }
 }

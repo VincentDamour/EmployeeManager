@@ -1,0 +1,19 @@
+<header>
+  <nav class="navbar">
+    <a class="navbar-brand" [routerLink]="['']">
+      <img src="/img/logo.svg" width="40" height="40" class="d-inline-block align-top" alt="Employee Manager">
+      <span>Employee Manager</span>
+    </a>
+    <ul class="nav navbar-nav float-xs-right">
+      <li *ngIf="!isLoggedIn" class="nav-item">
+        <a class="nav-link" [routerLink]="['login']">Login</a>
+      </li>
+      <li *ngIf="isLoggedIn" class="nav-item" (click)="onLogoutClick()">
+        <a class="nav-link">Logout</a>
+      </li>
+      <li *ngIf="isLoggedIn" class="nav-item">
+        <a class="nav-link" [routerLink]="['employees']">Employees</a>
+      </li>
+    </ul>
+  </nav>
+</header>

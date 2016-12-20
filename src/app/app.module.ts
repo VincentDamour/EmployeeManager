@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from "./layout/navbar.component";
 import { HomeComponent } from './home/home.component';
 import { LoginPageComponent } from './auth/login-page.component';
 import { EmployeesPageComponent } from './employees/employees-page.component';
@@ -33,6 +34,7 @@ import { firebaseConfig } from '../config/firebase-config'
   ],
   declarations: [
     AppComponent,
+    NavbarComponent,
     HomeComponent,
     LoginPageComponent,
     EmployeesPageComponent,

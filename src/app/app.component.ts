@@ -8,13 +8,9 @@ import { AuthService } from "./shared/services/auth.service";
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  isLoggedIn = false;
+  constructor(public authService: AuthService) {}
 
-  constructor(authService: AuthService) {
-    this.isLoggedIn = authService.isLoggedIn();
-  }
-
-  onLogoutClick() {
-    console.log('logout');
+  onLogout() {
+    this.authService.logout();
   }
 }

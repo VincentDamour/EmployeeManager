@@ -7,6 +7,6 @@ export class AdminGuard implements CanActivate {
   constructor(private authService: AuthService) {}
 
   canActivate() {
-    return this.authService.isAdmin();
+    return this.authService.isAdmin;
   }
 }

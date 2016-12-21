@@ -20,6 +20,10 @@
     </fieldset>
   </div>
 
+  <div class="create-link" *ngIf="isAdmin">
+    <a [routerLink]="['/employees/new']">Create</a>
+  </div>
+
   <table class="table">
     <thead class="thead-default">
       <tr>

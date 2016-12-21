@@ -5,12 +5,13 @@ import { HomeComponent } from './home/home.component';
 import { LoginPageComponent } from './auth/login-page.component';
 import { EmployeesPageComponent } from './employees/employees-page.component';
 import { EmployeesDetailPageComponent } from './employees/employees-detail-page.component';
+import { EmployeesCreatePageComponent } from './employees/employee-create-page/employee-create-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'employees', component: EmployeesPageComponent, canActivate: [LoggedInGuard] },
-  { path: 'employees/new', component: EmployeesDetailPageComponent, canActivate: [LoggedInGuard, AdminGuard] },
+  { path: 'employees/new', component: EmployeesCreatePageComponent, canActivate: [LoggedInGuard, AdminGuard] },
   { path: 'employees/:id', component: EmployeesDetailPageComponent, canActivate: [LoggedInGuard] }
 ];
 

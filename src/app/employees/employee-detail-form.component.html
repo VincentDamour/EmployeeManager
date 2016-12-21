@@ -50,7 +50,7 @@
     <div *ngIf="!canEdit && employee.notes">{{employee.notes}}</div>
   </div>
   <div class="col-md-12">
-    <button *ngIf="canEdit" (click)="onDelete()" type="button" class="btn btn-primary btn-delete">Delete</button>
+    <button *ngIf="canEdit && canDelete" (click)="onDelete()" type="button" class="btn btn-primary btn-delete">Delete</button>
     <button *ngIf="canEdit" type="submit" class="btn btn-primary btn-save">Save</button>
   </div>
 </form>

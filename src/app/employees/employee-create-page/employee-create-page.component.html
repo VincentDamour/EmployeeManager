@@ -1,0 +1,8 @@
+<section *ngIf="employee">
+  <employee-detail-form
+    [employee]="employee"
+    [canEdit]="true"
+    [canDelete]="flase"
+    (submit)="onSubmit($event)">
+  </employee-detail-form>
+</section>

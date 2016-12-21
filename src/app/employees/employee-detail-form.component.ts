@@ -9,6 +9,7 @@ import Employee from '../shared/models/Employee';
 export class EmployeeDetailFormComponent {
   @Input() employee: Employee;
   @Input() canEdit: boolean;
+  @Input() canDelete: bolean;
   @Output() submit = new EventEmitter(false);
   @Output() delete = new EventEmitter(false);
 

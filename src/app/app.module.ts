@@ -13,6 +13,7 @@ import { LoginPageComponent } from './auth/login-page.component';
 import { EmployeesPageComponent } from './employees/employees-page.component';
 import { EmployeesDetailPageComponent } from './employees/employees-detail-page.component';
 import { EmployeeDetailFormComponent } from './employees/employee-detail-form.component';
+import { EmployeesCreatePageComponent } from './employees/employee-create-page/employee-create-page.component';
 import { LoaderComponent } from './common/loader/loader.component';
 import { EmployeesService, AuthService } from './shared/services';
 import { LoggedInGuard } from './shared/guards/logged-in.guard';
@@ -43,6 +44,7 @@ import { firebaseConfig } from '../config/firebase.config'
     EmployeesPageComponent,
     EmployeesDetailPageComponent,
     EmployeeDetailFormComponent,
+    EmployeesCreatePageComponent,
     LoaderComponent,
     MoneyPipe
   ],

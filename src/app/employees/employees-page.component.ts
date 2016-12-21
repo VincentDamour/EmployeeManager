@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeesService } from "../shared/services/employees.service";
+import { AuthService } from "../shared/services/auth.service";
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import Employee from "../shared/models/Employee";
 
@@ -12,8 +13,11 @@ export class EmployeesPageComponent implements OnInit {
   // isLoading = true;
   currentType = 'ALL';
   employees: FirebaseListObservable<Employee[]> = null;
+  isAdmin: boolean = false;
 
-  constructor(private af: AngularFire, private employeesService: EmployeesService) { }
+  constructor(private af: AngularFire, private employeesService: EmployeesService, authService: AuthService) {
+    this.isAdmin = authService.isAdmin;
+   }
 
   ngOnInit() {
     // this.employeesService.getEmployees()

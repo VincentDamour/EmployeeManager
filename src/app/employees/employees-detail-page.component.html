@@ -4,6 +4,7 @@
   <employee-detail-form
     [employee]="employee | async"
     [canEdit]="isAdmin"
+    [canDelete]="isAdmin"
     (submit)="onSubmit($event)"
     (delete)="onDelete()">
   </employee-detail-form>

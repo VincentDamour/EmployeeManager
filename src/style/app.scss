@@ -17,7 +17,7 @@ a {
   }
 
   &:hover {
-    color: #EFC849;
+    color: #2DB6C0;
   }
 }
 
@@ -28,13 +28,13 @@ input {
 
 .btn-primary {
   border-radius: 0 !important;
-  background-color: #EFC849 !important;
-  border-color: #EFC849 !important;
+  background-color: #2DB6C0 !important;
+  border-color: #2DB6C0 !important;
   transition: all 0.25s ease-out;
 
   &:hover {
-    border-color: #EFC849 !important;
-    background-color: darken(#EFC849, 10%) !important;
+    border-color: #2DB6C0 !important;
+    background-color: darken(#2DB6C0, 10%) !important;
   }
 }
 

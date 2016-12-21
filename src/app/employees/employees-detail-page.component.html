@@ -1,5 +1,10 @@
 <loader *ngIf="!(employee | async)"></loader>
 
 <section *ngIf="employee | async">
-  <employee-detail-form [employee]="employee | async"></employee-detail-form>
+  <employee-detail-form
+    [employee]="employee | async"
+    [canEdit]="isAdmin"
+    (submit)="onSubmit($event)"
+    (delete)="onDelete()">
+  </employee-detail-form>
 </section>

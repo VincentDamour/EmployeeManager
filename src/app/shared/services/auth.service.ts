@@ -45,7 +45,6 @@ class AuthServiceHttp {
 
 @Injectable()
 export class AuthService {
-  private roles = [];
   private authState: FirebaseAuthState = null;
 
   constructor(public auth$: FirebaseAuth) {
@@ -59,13 +58,12 @@ export class AuthService {
   }
 
   get isAdmin(): boolean {
-    return this.roles.includes('ADMIN');
+    return !!this.authState && !!this.authState.auth.email;
   }
 
   login(email: string, password: string): firebase.Promise<FirebaseAuthState> {
     return this.auth$
       .login({ email, password }, { provider: AuthProviders.Password, method: AuthMethods.Password })
-      .then(() => this.roles.push('ADMIN'))
       .catch(error => console.log('ERROR @ AuthService#login() :', error));
   }
 
@@ -77,6 +75,5 @@ export class AuthService {
 
   logout(): void {
     this.auth$.logout();
-    this.roles = [];
   }
 }

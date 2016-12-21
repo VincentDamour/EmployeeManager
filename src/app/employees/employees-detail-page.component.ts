@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 import Employee from "../shared/models/Employee";
+import { AuthService } from "../shared/services/auth.service";
 
 @Component({
   selector: 'employees-detail-page',
@@ -12,18 +13,27 @@ export class EmployeesDetailPageComponent implements OnInit {
   isLoading: boolean = false;
   employeeId: number = null;
   employee: FirebaseObjectObservable<Employee>;
-  internalEmployee: Employee;
+  isAdmin: boolean;
 
-  constructor(private route: ActivatedRoute, private af: AngularFire) {}
+  constructor(private route: ActivatedRoute, private af: AngularFire, private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.employeeId = +params['id'];
       this.employee = this.af.database.object(`/employees/${this.employeeId}`);
     });
+
+    this.isAdmin = this.authService.isAdmin;
   }
 
-  onSubmit() {
-    console.log("submit");
+  onSubmit(event) {
+    if(event.value && event.value.id) {
+      const { name, email, phone, website, type, salary, notes } = event.value;
+      this.employee.update({ name, email, phone, website, type, salary, notes: notes || '' });
+    }
+  }
+
+  onDelete() {
+    this.employee.remove().then(() => this.router.navigate(['/employees']));
   }
 }

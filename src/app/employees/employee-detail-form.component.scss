@@ -1,3 +1,21 @@
 .btn-save {
   margin-top: 2rem;
 }
+
+.btn-delete {
+  margin-top: 2rem;
+  background-color: #FF4339 !important;
+  border-color: #FF4339 !important;
+  transition: all 0.25s ease-out;
+
+  &:hover {
+    background-color: darken(#FF4339, 20%) !important;
+  }
+}
+
+.form-group {
+  > div {
+    font-weight: 700 !important;
+    margin-bottom: 1rem;
+  }
+}

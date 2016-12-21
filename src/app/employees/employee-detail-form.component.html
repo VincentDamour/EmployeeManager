@@ -1,28 +1,33 @@
-<form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+<form (ngSubmit)="onSubmit()" #employeeForm="ngForm" novalidate>
   <div class="form-group col-md-6">
     <label for="name">Name</label>
-    <input [(ngModel)]="employee.name" type="text" name="name" class="form-control" id="name" required>
+    <input *ngIf="canEdit" [(ngModel)]="employee.name" type="text" name="name" class="form-control" id="name" required>
+    <div *ngIf="!canEdit">{{employee.name}}</div>
   </div>
   <div class="form-group col-md-6">
     <label for="phone">Phone</label>
-    <input [(ngModel)]="employee.phone" type="tel" name="phone" class="form-control" id="phone" required>
+    <input *ngIf="canEdit" [(ngModel)]="employee.phone" type="tel" name="phone" class="form-control" id="phone" required>
+    <div *ngIf="!canEdit">{{employee.phone}}</div>
   </div>
   <div class="form-group col-md-6">
     <label for="email">Email</label>
-    <input [(ngModel)]="employee.email" type="email" name="email" class="form-control" id="email" required>
+    <input *ngIf="canEdit" [(ngModel)]="employee.email" type="email" name="email" class="form-control" id="email" required>
+    <div *ngIf="!canEdit">{{employee.email}}</div>
   </div>
   <div class="form-group col-md-6">
     <label for="website">Website</label>
-    <input [(ngModel)]="employee.website" name="website" type="url" class="form-control" id="website">
+    <input *ngIf="canEdit" [(ngModel)]="employee.website" name="website" type="url" class="form-control" id="website">
+    <div *ngIf="!canEdit">{{employee.website}}</div>
   </div>
   <div class="form-group col-md-6">
     <label for="salary">Salary</label>
-    <input [(ngModel)]="employee.salary" name="salary" type="text" class="form-control" id="salary">
+    <input *ngIf="canEdit" [(ngModel)]="employee.salary" name="salary" type="text" class="form-control" id="salary">
+    <div *ngIf="!canEdit">{{employee.salary}}</div>
   </div>
-  <div class="col-md-12">
+  <div *ngIf="canEdit" class="col-md-12">
     <fieldset class="form-group">
       <label class="col-md-12 no-padding-left">Employee type</label>
-      <div [(ngModel)]="employee.type" ngbRadioGroup name="type">
+      <div [(ngModel)]="employee.type" ngbRadioGroup name="radioBasic" class="radio-group">
         <label class="btn btn-primary">
           <input type="radio" value="A" name="type">Type A
         </label>
@@ -35,11 +40,17 @@
       </div>
     </fieldset>
   </div>
+  <div *ngIf="!canEdit" class="col-md-6">
+    <label>Employee type</label>
+    <div>{{employee.type}}</div>
+  </div>
   <div class="form-group col-md-12">
-    <label for="notes">Notes</label>
-    <textarea [(ngModel)]="employee.notes" name="notes" class="form-control" id="notes" rows="4"></textarea>
+    <label *ngIf="canEdit || (!canEdit && employee.notes)" for="notes">Notes</label>
+    <textarea *ngIf="canEdit" [(ngModel)]="employee.notes" name="notes" class="form-control" id="notes" rows="4"></textarea>
+    <div *ngIf="!canEdit && employee.notes">{{employee.notes}}</div>
   </div>
   <div class="col-md-12">
-    <button type="submit" class="btn btn-primary btn-save">Save</button>
+    <button *ngIf="canEdit" (click)="onDelete()" type="button" class="btn btn-primary btn-delete">Delete</button>
+    <button *ngIf="canEdit" type="submit" class="btn btn-primary btn-save">Save</button>
   </div>
 </form>

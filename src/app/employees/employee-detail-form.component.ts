@@ -1,22 +1,22 @@
-import { Component, OnChanges, Input } from '@angular/core';
-import Employee from "../shared/models/Employee";
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import Employee from '../shared/models/Employee';
 
 @Component({
   selector: 'employee-detail-form',
   templateUrl: 'employee-detail-form.component.html',
   styleUrls: ['employee-detail-form.component.scss']
 })
-export class EmployeeDetailFormComponent implements OnChanges {
+export class EmployeeDetailFormComponent {
   @Input() employee: Employee;
-
-  ngOnChanges(changes:any):void {
-    const hasChanged = changes.employee.currentValue;
-    if (hasChanged) {
-      console.log(changes.employee.currentValue);
-    }
-  }
+  @Input() canEdit: boolean;
+  @Output() submit = new EventEmitter(false);
+  @Output() delete = new EventEmitter(false);
 
   onSubmit() {
-    console.log("submit");
+    this.submit.emit({ value: this.employee });
+  }
+
+  onDelete() {
+    this.delete.emit();
   }
 }

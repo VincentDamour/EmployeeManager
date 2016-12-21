@@ -1,6 +1,3 @@
-import Company from "./Company";
-import Address from "./Address";
-
 export default class Employee {
   public id: number;
 

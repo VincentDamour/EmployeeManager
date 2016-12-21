@@ -1,12 +1,14 @@
 <div class="col-md-4 offset-md-4">
-  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form" novalidate>
     <div class="form-group col-md-12">
       <label for="email">Email</label>
-      <input [(ngModel)]="email" type="email" name="email" id="email" class="form-control" required>
+      <input type="email" name="email" id="email" class="form-control" formControlName="email">
+      <field-error *ngIf="submitted" [fieldErrors]="form.controls.email?.errors"></field-error>
     </div>
     <div class="form-group col-md-12">
       <label for="password">Password</label>
-      <input [(ngModel)]="password" type="password" name="password" id="password" class="form-control" required>
+      <input type="password" name="password" id="password" class="form-control" formControlName="password">
+      <field-error *ngIf="submitted" [fieldErrors]="form.controls.password?.errors"></field-error>
     </div>
     <div class="col-md-12">
       <button type="submit" class="btn btn-primary col-md-12">Login</button>

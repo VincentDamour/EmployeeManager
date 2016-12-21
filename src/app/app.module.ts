@@ -1,12 +1,13 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from "./layout/navbar.component";
+import { FieldErrorComponent } from './common/error/field-error.component';
+import { NavbarComponent } from './layout/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { LoginPageComponent } from './auth/login-page.component';
 import { EmployeesPageComponent } from './employees/employees-page.component';
@@ -16,7 +17,7 @@ import { LoaderComponent } from './common/loader/loader.component';
 import { EmployeesService, AuthService } from './shared/services';
 import { LoggedInGuard } from './shared/guards/logged-in.guard';
 import { AdminGuard } from './shared/guards/admin.guard';
-import { MoneyPipe } from './shared/money.pipe';
+import { MoneyPipe } from './shared/pipes/money.pipe';
 import { routing } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
@@ -28,12 +29,14 @@ import { firebaseConfig } from '../config/firebase.config'
     BrowserModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     routing,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   declarations: [
     AppComponent,
+    FieldErrorComponent,
     NavbarComponent,
     HomeComponent,
     LoginPageComponent,

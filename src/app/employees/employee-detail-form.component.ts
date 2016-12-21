@@ -7,7 +7,7 @@ import Employee from "../shared/models/Employee";
   styleUrls: ['employee-detail-form.component.scss']
 })
 export class EmployeeDetailFormComponent implements OnChanges {
-  @Input() employee:Employee;
+  @Input() employee: Employee;
 
   ngOnChanges(changes:any):void {
     const hasChanged = changes.employee.currentValue;

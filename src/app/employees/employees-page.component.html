@@ -1,6 +1,25 @@
 <loader *ngIf="!(employees | async)"></loader>
 
-<div *ngIf="employees | async">
+<div >
+  <div>
+    <fieldset class="form-group">
+      <div [ngModel]="currentType" ngbRadioGroup name="radioBasic" class="radio-group">
+        <label class="btn btn-primary">
+          <input (click)="onTypeChange('ALL')" type="radio" value="ALL" name="type">All
+        </label>
+        <label class="btn btn-primary">
+          <input (click)="onTypeChange('A')" type="radio" value="A" name="type">Type A
+        </label>
+        <label class="btn btn-primary">
+          <input (click)="onTypeChange('B')" type="radio" value="B" name="type">Type B
+        </label>
+        <label class="btn btn-primary">
+          <input (click)="onTypeChange('C')" type="radio" value="C" name="type">Type C
+        </label>
+      </div>
+    </fieldset>
+  </div>
+
   <table class="table">
     <thead class="thead-default">
       <tr>

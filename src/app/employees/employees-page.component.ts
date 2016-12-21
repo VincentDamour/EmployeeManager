@@ -10,13 +10,10 @@ import Employee from "../shared/models/Employee";
 })
 export class EmployeesPageComponent implements OnInit {
   // isLoading = true;
+  currentType = 'ALL';
   employees: FirebaseListObservable<Employee[]> = null;
 
-  // constructor(private employeesService: EmployeesService) {
-  // }
-
-  constructor(private af: AngularFire) {
-  }
+  constructor(private af: AngularFire, private employeesService: EmployeesService) { }
 
   ngOnInit() {
     // this.employeesService.getEmployees()
@@ -27,8 +24,22 @@ export class EmployeesPageComponent implements OnInit {
     //     },
     //     error => console.error(error)
     //   );
+
     this.employees = this.af.database.list('/employees');
   }
 
   trackByEmployeeId = (index, employee) => employee.id;
+
+  onTypeChange(type: string) {
+    if(type === 'ALL') {
+      this.employees = this.af.database.list('/employees', {
+        query: { orderByChild: null, equalTo: null }
+      });
+    }
+    else {
+      this.employees = this.af.database.list('/employees', {
+        query: { orderByChild: 'type', equalTo: type }
+      });
+    }
+  }
 }

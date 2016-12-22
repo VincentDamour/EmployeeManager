@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
+import { DropdownModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { FieldErrorComponent } from './common/error/field-error.component';
@@ -33,7 +34,8 @@ import { firebaseConfig } from '../config/firebase.config'
     ReactiveFormsModule,
     routing,
     NgbModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    DropdownModule
   ],
   declarations: [
     AppComponent,

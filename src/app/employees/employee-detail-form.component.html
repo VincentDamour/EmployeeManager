@@ -44,6 +44,9 @@
     <label>Employee type</label>
     <div>{{employee.type}}</div>
   </div>
+  <div>
+    <input type="file" name="fileupload" (change)="uploadFile($event)" />
+  </div>
   <div class="form-group col-md-12">
     <label *ngIf="canEdit || (!canEdit && employee.notes)" for="notes">Notes</label>
     <textarea *ngIf="canEdit" [(ngModel)]="employee.notes" name="notes" class="form-control" id="notes" rows="4"></textarea>

@@ -63,6 +63,9 @@ export class EmployeeDetailFormComponent {
       // Read bytes from DB
       // Copy file (from bytes) to a download folder with the file name + unique hash
       // Send route to file
+
+      // Easiest way
+      // Save file in download folder, save path to related object
     }
   }
 }

@@ -18,4 +18,15 @@ export class EmployeesService {
   public getEmployee(id): Observable<Employee> {
     return this.http.get(`${this.url}/${id}`).map(extractData).catch(handleError);
   }
+
+  public getNumbers(): Observable<number> {
+    return new Observable(observer => {
+      setTimeout(() => observer.next(10), 500);
+      setTimeout(() => observer.next(20), 1000);
+      setTimeout(() => observer.next(30), 1500);
+      setTimeout(() => observer.next(40), 2000);
+      setTimeout(() => observer.next(50), 4000);
+      setTimeout(() => observer.complete(), 5000);
+    })
+  }
 }

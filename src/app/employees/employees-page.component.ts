@@ -12,6 +12,7 @@ export class EmployeesPageComponent implements OnInit {
   // isLoading = true;
   currentType = 'ALL';
   employees: FirebaseListObservable<Employee[]> = null;
+  numbers: number[] = [];
 
   constructor(private af: AngularFire, private employeesService: EmployeesService) { }
 
@@ -26,6 +27,17 @@ export class EmployeesPageComponent implements OnInit {
     //   );
 
     this.employees = this.af.database.list('/employees');
+
+    const subscription = this.employeesService.getNumbers().subscribe(
+      number => {
+        this.numbers.push(number);
+        console.log(number);
+      },
+      error => console.error(error),
+      () => console.log('completed')
+
+      // Ex: observe isLoggedIn, if not logged in anymore, redirect to login page
+    )
   }
 
   trackByEmployeeId = (index, employee) => employee.id;

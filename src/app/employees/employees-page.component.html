@@ -33,7 +33,7 @@
     <tbody>
       <tr
         *ngFor="let employee of employees | async; let i = index; trackBy: trackByEmployeeId"
-        [routerLink]="['/employees', employee.id]">
+        [routerLink]="['/employees', encodeParam(employee.id)]">
         <th scope="row">{{employee.id}}</th>
         <td>{{employee.name}}</td>
         <td>{{employee.phone}}</td>

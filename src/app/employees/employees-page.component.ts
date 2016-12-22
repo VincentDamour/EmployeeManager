@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeesService } from "../shared/services/employees.service";
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import Employee from "../shared/models/Employee";
+import { encode } from '../shared/utils/encoding';
 
 @Component({
   selector: 'employees-page',
@@ -41,5 +42,9 @@ export class EmployeesPageComponent implements OnInit {
         query: { orderByChild: 'type', equalTo: type }
       });
     }
+  }
+
+  encodeParam(employeeId) {
+    return encode(employeeId);
   }
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 import Employee from "../shared/models/Employee";
 import { AuthService } from "../shared/services/auth.service";
+import { decode } from '../shared/utils/encoding';
 
 @Component({
   selector: 'employees-detail-page',
@@ -11,7 +12,7 @@ import { AuthService } from "../shared/services/auth.service";
 })
 export class EmployeesDetailPageComponent implements OnInit {
   isLoading: boolean = false;
-  employeeId: number = null;
+  employeeId: string = null;
   employee: FirebaseObjectObservable<Employee>;
   isAdmin: boolean;
 
@@ -19,7 +20,7 @@ export class EmployeesDetailPageComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.employeeId = +params['id'];
+      this.employeeId = decode(params['id']);
       this.employee = this.af.database.object(`/employees/${this.employeeId}`);
     });
 

@@ -19,6 +19,7 @@ import { LoggedInGuard } from './shared/guards/logged-in.guard';
 import { AdminGuard } from './shared/guards/admin.guard';
 import { MoneyPipe } from './shared/pipes/money.pipe';
 import { routing } from './app.routing';
+import { ConfirmDirective } from './common/directives/confirm.directive';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
@@ -44,7 +45,8 @@ import { firebaseConfig } from '../config/firebase.config'
     EmployeesDetailPageComponent,
     EmployeeDetailFormComponent,
     LoaderComponent,
-    MoneyPipe
+    MoneyPipe,
+    ConfirmDirective
   ],
   providers: [
     EmployeesService,

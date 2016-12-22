@@ -1,4 +1,11 @@
-<navbar [isLoggedIn]="authService.isLoggedIn" (logout)="onLogout()"></navbar>
-<main>
-  <router-outlet></router-outlet>
-</main>
+<div id="app">
+  <div id="confirm-prompt">
+    <p>Are you sure you want to continue?</p>
+    <button class="btn">No</button>
+    <button class="btn btn-primary">Yes</button>
+  </div>
+  <navbar [isLoggedIn]="authService.isLoggedIn" (logout)="onLogout()"></navbar>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

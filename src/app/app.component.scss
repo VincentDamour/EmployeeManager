@@ -1,3 +1,29 @@
 :host {
   display: block;
 }
+
+#confirm-prompt {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  display: none;
+
+  p {
+    font-size: 2rem;
+    margin-top: 50vh;
+    color: white;
+    text-align: center;
+  }
+
+  .btn {
+    position: absolute;
+    left: 40%;
+  }
+
+  .btn-primary {
+    position: absolute;
+    left: 50% !important;
+  }
+}

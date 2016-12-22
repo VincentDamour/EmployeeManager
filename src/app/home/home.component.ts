@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  // Component === Directive E + template
+  // S (Structural) === change le dom
+  // A (Attribut) === change le visuel
 }
